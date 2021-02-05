@@ -13,9 +13,7 @@ import logo from '../../assets/logo.png';
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(() => {
-    console.log('Okay!');
-  }, []);
+  const handleSubmit = useCallback(() => console.log('Okay!'), []);
 
   return (
     <Container>
