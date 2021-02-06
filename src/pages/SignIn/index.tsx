@@ -3,6 +3,7 @@ import { FiMail, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -20,39 +21,39 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
-  const handleSubmit = useCallback(async (data: SignInFormData) => {
-    try {
-      formRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .required('O email é obrigatório!')
-          .email('Digite um email válido!'),
-        password: Yup.string().required('Senha incorreta!'),
-      });
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('O email é obrigatório!')
+            .email('Digite um email válido!'),
+          password: Yup.string().required('Senha incorreta!'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        const errors = getValidationErrors(err);
-        formRef.current?.setErrors(errors);
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
-        console.log(errors);
+        history.push('/instructors');
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+          formRef.current?.setErrors(errors);
+
+          console.log(errors);
+        }
       }
-    }
-  }, []);
+    },
+    [history],
+  );
 
   return (
     <Container>
-      <Background>
-        <div>
-          <img src={logo} alt="Gym Manager" />
-        </div>
-      </Background>
-
       <Content>
         <Form ref={formRef} onSubmit={handleSubmit}>
           <h1>Área de acesso</h1>
@@ -68,6 +69,12 @@ const SignIn: React.FC = () => {
           <Button type="submit">Entrar</Button>
         </Form>
       </Content>
+
+      <Background>
+        <div>
+          <img src={logo} alt="Gym Manager" />
+        </div>
+      </Background>
     </Container>
   );
 };

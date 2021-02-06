@@ -52,7 +52,7 @@ export const Table = styled.table`
 
   tr {
     display: grid;
-    grid-template-columns: 150px 600px 100px 150px;
+    grid-template-columns: auto 1fr 100px 140px;
     align-items: center;
     color: #f4ede8;
     font-size: 16px;
@@ -76,6 +76,28 @@ export const Table = styled.table`
             margin-left: 8px;
           }
         }
+      }
+    }
+
+    td:first-child {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 80px;
+        height: 80px;
+        margin-right: 16px;
+
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 2px 2px 4px 1px #666360;
+
+        & + span {
+        }
+      }
+
+      span {
+        width: max-content;
       }
     }
   }

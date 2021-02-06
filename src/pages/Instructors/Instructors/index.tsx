@@ -1,12 +1,15 @@
 import React, { useCallback } from 'react';
 import { Form } from '@unform/web';
 import { FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import Menu from '../../components/Menu';
+import Input from '../../../components/Input';
+import Button from '../../../components/Button';
+import Menu from '../../../components/Menu';
 
 import { Container, View, Table } from './styles';
+
+import avatar from '../../../assets/avatar.jpg';
 
 const Instructors: React.FC = () => {
   const handleSubmit = useCallback(() => console.log('Search'), []);
@@ -25,7 +28,7 @@ const Instructors: React.FC = () => {
           </Form>
 
           <Button>
-            <a href="/">Novo instrutor</a>
+            <Link to="/instructors/create">Novo instrutor</Link>
           </Button>
         </header>
 
@@ -41,7 +44,8 @@ const Instructors: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <img src="" alt="" /> <span>Rodrigo</span>
+                <img src={avatar} alt="Instructor" />
+                <span>Rodrigo Silvério</span>
               </td>
               <td className="skills">
                 <span>Musculação</span>
@@ -51,38 +55,7 @@ const Instructors: React.FC = () => {
               <td>7</td>
               <td>
                 <Button pad="12px" size="14px">
-                  <a href="/">Visualizar</a>
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="" alt="" /> <span>Patrícia</span>
-              </td>
-              <td className="skills">
-                <span>Dança</span>
-                <span>Aeróbica</span>
-              </td>
-              <td>7</td>
-              <td>
-                <Button pad="12px" size="14px">
-                  <a href="/">Visualizar</a>
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="" alt="" /> <span>Gustavo</span>
-              </td>
-              <td className="skills">
-                <span>Musculação</span>
-                <span>CrossFit</span>
-                <span>Aeróbica</span>
-              </td>
-              <td>7</td>
-              <td>
-                <Button pad="12px" size="14px">
-                  <a href="/">Visualizar</a>
+                  <Link to="/instructors/id">Visualizar</Link>
                 </Button>
               </td>
             </tr>
