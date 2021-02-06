@@ -1,19 +1,34 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
-export const Container = styled.button`
-  width: 100%;
-  padding: 16px 0;
+interface ContainerProps {
+  pad: string;
+  size: string;
+  background: string;
+}
 
-  font-size: 16px;
+export const Container = styled.button<ContainerProps>`
+  width: 100%;
+
+  ${props => css`
+    padding: ${props.pad};
+    font-size: ${props.size};
+    background: ${props.background};
+    border: 2px solid ${props.background};
+  `}
+
   font-weight: 500;
   letter-spacing: 0.5px;
 
-  background: #933bf4;
+  color: #f4ede8;
+
   border-radius: 10px;
   transition: background 0.2s;
 
   &:hover {
-    background: ${shade(0.2, '#933BF4')};
+    ${props => css`
+      background: ${shade(0.2, `${props.background}`)};
+      border-color: ${shade(0.2, `${props.background}`)};
+    `}
   }
 `;

@@ -49,7 +49,7 @@ export const Container = styled.div<ContainerProps>`
   }
 
   input {
-    padding: 18px 0;
+    padding: 16px 0;
     flex: 1;
     font-size: 16px;
     color: #f4ede8 !important;
