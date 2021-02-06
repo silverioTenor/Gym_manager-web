@@ -8,7 +8,8 @@ import logo from '../../assets/logo.png';
 const Menu: React.FC = () => {
   const [isMenu, setIsMenu] = useState(false);
 
-  const handleButton = useCallback(() => setIsMenu(!isMenu), [isMenu]);
+  const handleTransition = useCallback(() => setIsMenu(oldValue => !oldValue), []);
+
   return (
     <>
       <Container isMenuActive={isMenu}>
@@ -20,7 +21,7 @@ const Menu: React.FC = () => {
         </aside>
       </Container>
 
-      <ToggleButton isMenuActive={isMenu} onClick={handleButton}>
+      <ToggleButton isMenuActive={isMenu} onClick={handleTransition}>
         {isMenu ? <FiX size={28} /> : <FiMenu size={28} />}
       </ToggleButton>
     </>

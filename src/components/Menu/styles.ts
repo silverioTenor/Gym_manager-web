@@ -1,8 +1,30 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface ToggleButtonProps {
   isMenuActive: boolean;
 }
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-230px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-230px);
+  }
+`;
 
 export const Container = styled.div<ToggleButtonProps>`
   width: 100%;
@@ -21,18 +43,20 @@ export const Container = styled.div<ToggleButtonProps>`
 
   background: #1c1c1c;
 
-  opacity: 0;
-  visibility: hidden;
+  ${props =>
+    !props.isMenuActive &&
+    css`
+      animation: ${appearFromRight} 1s forwards;
+    `};
 
   ${props =>
     props.isMenuActive &&
     css`
-      opacity: 1;
-      visibility: visible;
-    `}
+      animation: ${appearFromLeft} 1s forwards;
+    `};
 
   img {
-    height: 150px;
+    width: 200px;
     margin: 0 auto;
     object-fit: contain;
   }
@@ -61,17 +85,41 @@ export const Container = styled.div<ToggleButtonProps>`
   }
 `;
 
+const appearFromLeftTwo = keyframes`
+  from {
+    left: 20px;
+  }
+  to {
+    left: 240px;
+  }
+`;
+
+const appearFromRightTwo = keyframes`
+  from {
+    left: 240px;
+  }
+  to {
+    left: 20px;
+  }
+`;
+
 export const ToggleButton = styled.div<ToggleButtonProps>`
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 20px;
+
+  ${props =>
+    !props.isMenuActive &&
+    css`
+      animation: ${appearFromRightTwo} 1s forwards;
+    `}
 
   ${props =>
     props.isMenuActive &&
     css`
-      left: 240px;
+      animation: ${appearFromLeftTwo} 1s forwards;
     `}
 
   display: flex;
