@@ -55,7 +55,7 @@ const Instructors: React.FC = () => {
               <td>7</td>
               <td>
                 <Button pad="12px" size="14px">
-                  <Link to="/instructors/id">Visualizar</Link>
+                  <Link to="/instructors/show/id">Visualizar</Link>
                 </Button>
               </td>
             </tr>

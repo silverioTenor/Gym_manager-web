@@ -28,4 +28,17 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .skills {
+    span {
+      padding: 4px 10px;
+      color: #1c1c1c;
+      background: #e8c02c;
+      border-radius: 16px;
+
+      & + span {
+        margin-left: 8px;
+      }
+    }
+  }
 `;

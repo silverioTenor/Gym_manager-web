@@ -2,8 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import SignIn from '../pages/SignIn';
-import Instructors from '../pages/Instructors/Instructors';
+import Instructors from '../pages/Instructors/List';
 import CreateIntructor from '../pages/Instructors/Create';
+import ShowIntructor from '../pages/Instructors/Show';
 
 const routes: React.FC = () => (
   <Switch>
@@ -11,6 +12,7 @@ const routes: React.FC = () => (
 
     <Route path="/instructors" exact component={Instructors} />
     <Route path="/instructors/create" component={CreateIntructor} />
+    <Route path="/instructors/show/id" component={ShowIntructor} />
   </Switch>
 );
 

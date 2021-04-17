@@ -64,19 +64,6 @@ export const Table = styled.table`
       padding: 20px;
       display: flex;
       justify-content: center;
-
-      &.skills {
-        span {
-          padding: 4px 10px;
-          color: #1c1c1c;
-          background: #e8c02c;
-          border-radius: 16px;
-
-          & + span {
-            margin-left: 8px;
-          }
-        }
-      }
     }
 
     td:first-child {
