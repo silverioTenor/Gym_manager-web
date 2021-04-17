@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { useHistory } from 'react-router-dom';
-import { FiCalendar, FiMail, FiUser } from 'react-icons/fi';
+import { FiArrowLeft, FiCalendar, FiMail, FiUser } from 'react-icons/fi';
 import * as Yup from 'yup';
 
 import Input from '../../../components/Input';
@@ -52,6 +52,7 @@ const Create: React.FC = () => {
 
       <Content>
         <button type="button" onClick={() => history.goBack()}>
+          <FiArrowLeft />
           Voltar
         </button>
         <Form ref={formRef} onSubmit={handleSubmit}>

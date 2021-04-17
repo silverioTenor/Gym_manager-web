@@ -40,7 +40,22 @@ export const Content = styled.div`
   overflow: hidden;
 
   > button {
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    top: 18px;
+    right: 24px;
+
+    font-size: 14px;
+
+    color: #aaa;
     background: transparent;
+
+    svg {
+      margin-right: 4px;
+      font-size: 16px;
+    }
   }
 
   form {
