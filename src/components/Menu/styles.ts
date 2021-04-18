@@ -70,6 +70,7 @@ export const Container = styled.div<ToggleButtonProps>`
 
     a {
       padding: 20px 0;
+
       font-size: 16px;
       font-weight: 500;
       text-transform: uppercase;
@@ -80,6 +81,16 @@ export const Container = styled.div<ToggleButtonProps>`
 
       &:hover {
         background: #933bf4;
+      }
+
+      form button {
+        background: transparent;
+
+        svg {
+          color: #f4ede8;
+          font-weight: bold;
+          font-size: 22px;
+        }
       }
     }
   }
